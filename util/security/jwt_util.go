@@ -9,6 +9,13 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
+// Buat variabel untuk menyimpan token yang akan dihapus
+var tokens = make(map[string]*jwt.Token)
+
+func RemoveToken(email string) {
+	delete(tokens, email)
+}
+
 func GenerateJwtToken(user model.UserCredential) (string, error) {
 	cfg, err := config.NewConfig()
 	if err != nil {

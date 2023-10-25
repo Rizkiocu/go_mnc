@@ -9,6 +9,7 @@ import (
 
 type AuthUseCase interface {
 	Login(payload dto.AuthRequest) (dto.AuthResponse, error)
+	Logout(email string) error
 }
 
 type authUseCase struct {
@@ -18,7 +19,7 @@ type authUseCase struct {
 // Login implements AuthUseCase.
 func (a *authUseCase) Login(payload dto.AuthRequest) (dto.AuthResponse, error) {
 	// Username di db
-	user, err := a.repo.FindByUsername(payload.Email)
+	user, err := a.repo.FindByEmail(payload.Email)
 	if err != nil {
 		return dto.AuthResponse{}, fmt.Errorf("unauthorized: invalid credential")
 	}
@@ -37,6 +38,11 @@ func (a *authUseCase) Login(payload dto.AuthRequest) (dto.AuthResponse, error) {
 		Email: user.Email,
 		Token: token,
 	}, nil
+}
+
+func (a *authUseCase) Logout(email string) error {
+
+	return nil
 }
 
 func NewAuthUseCase(repo repository.UserRepository) AuthUseCase {

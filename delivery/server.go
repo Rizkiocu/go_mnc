@@ -34,6 +34,7 @@ func (s *Server) initMiddlewares() {
 func (s *Server) initControllers() {
 	rg := s.engine.Group("/api/v1")
 	controller.NewAuthController(s.ucManager.UserUseCase(), s.ucManager.AuthUseCase(), rg).Route()
+	controller.NewPaymentController(s.ucManager.PaymentUseCase(), rg).Route()
 }
 
 func NewServer() *Server {

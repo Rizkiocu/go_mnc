@@ -12,8 +12,9 @@ import (
 )
 
 type UserUseCase interface {
-	FindByUsername(username string) (model.UserCredential, error)
+	FindByEmail(email string) (model.UserCredential, error)
 	Register(payload dto.AuthRequest) error
+	FindById(id string) (model.UserCredential, error)
 }
 
 type userUseCase struct {
@@ -21,8 +22,16 @@ type userUseCase struct {
 }
 
 // FindByUsername implements UserUseCase.
-func (u *userUseCase) FindByUsername(username string) (model.UserCredential, error) {
-	return u.repo.FindByUsername(username)
+func (u *userUseCase) FindByEmail(email string) (model.UserCredential, error) {
+	return u.repo.FindByEmail(email)
+}
+
+func (u *userUseCase) FindById(id string) (model.UserCredential, error) {
+	user, err := u.repo.FindById(id)
+	if err != nil {
+		return model.UserCredential{}, fmt.Errorf("uom not found")
+	}
+	return user, nil
 }
 
 // Register implements UserUseCase.
@@ -43,7 +52,7 @@ func (u *userUseCase) Register(payload dto.AuthRequest) error {
 		return fmt.Errorf("password must contain at least six number")
 	}
 	userCredential := model.UserCredential{
-		Id:       common.GenerateID(),
+		Id:       common.GenerateUUID(),
 		Email:    payload.Email,
 		Password: hashPassword,
 		Name:     payload.Name,
