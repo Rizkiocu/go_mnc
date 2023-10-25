@@ -1,0 +1,6 @@
+time="2023-10-25T07:21:24+07:00" level=info msg="{2023-10-25 07:20:47.3267041 +0700 +07 m=+0.022657201 37.1604788s 201 127.0.0.1 POST /api/v1/auth/register PostmanRuntime/7.33.0}"
+time="2023-10-25T07:22:11+07:00" level=warning msg="{2023-10-25 07:20:47.3267041 +0700 +07 m=+0.022657201 1m23.866296s 404 127.0.0.1 POST /api/v1/login PostmanRuntime/7.33.0}"
+time="2023-10-25T07:22:42+07:00" level=info msg="{2023-10-25 07:20:47.3267041 +0700 +07 m=+0.022657201 1m55.1595357s 201 127.0.0.1 POST /api/v1/auth/login PostmanRuntime/7.33.0}"
+time="2023-10-25T07:22:54+07:00" level=error msg="{2023-10-25 07:20:47.3267041 +0700 +07 m=+0.022657201 2m7.4827414s 500 127.0.0.1 POST /api/v1/auth/login PostmanRuntime/7.33.0}"
+time="2023-10-25T07:29:37+07:00" level=error msg="{2023-10-25 07:29:27.8607452 +0700 +07 m=+0.013895601 9.4721159s 500 127.0.0.1 POST /api/v1/auth/register PostmanRuntime/7.33.0}"
+time="2023-10-25T07:29:46+07:00" level=error msg="{2023-10-25 07:29:27.8607452 +0700 +07 m=+0.013895601 19.1054011s 500 127.0.0.1 POST /api/v1/auth/register PostmanRuntime/7.33.0}"

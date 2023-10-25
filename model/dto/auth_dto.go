@@ -1,11 +1,12 @@
 package dto
 
 type AuthRequest struct {
-	Username string
+	Email    string
 	Password string
+	Name     string
 }
 
 type AuthResponse struct {
-	Username string `json:"username"`
-	Token    string `json:"token"`
+	Email string `json:"email"`
+	Token string `json:"token"`
 }

@@ -4,7 +4,7 @@ import "github.com/golang-jwt/jwt/v5"
 
 type AppClaims struct {
 	jwt.RegisteredClaims
-	Username string   `json:"username"`
+	Email    string   `json:"email"`
 	Role     string   `json:"role,omitempty"`
 	Services []string `json:"services,omitempty"`
 }

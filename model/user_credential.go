@@ -2,7 +2,8 @@ package model
 
 type UserCredential struct {
 	Id       string
-	Username string
+	Email    string
 	Password string
+	Name     string
 	IsActive bool
 }
